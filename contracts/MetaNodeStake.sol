@@ -304,7 +304,7 @@ contract MetaNodeStake is Initializable, PausableUpgradeable, AccessControlUpgra
            }
         }
         // 提现代币
-        if(withdrawableAmount){
+        if(withdrawableAmount > 0){
             if(pool.stTokenAddress == address(0)){
                 // 如果质押的代币是以太币，直接转账给用户
                 Address.sendValue(payable(msg.sender), withdrawableAmount);
